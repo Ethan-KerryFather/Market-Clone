@@ -11,9 +11,7 @@ export default function Prototypes() {
       <div className="prototypes">
         {prototypes.map((element) => {
           const { id, thumbnail, title, price, desc, pieUrl } = element;
-          const click = () => {
-            addToOrder(id);
-          };
+
           return (
             <div key={id} className="prototype">
               <a href={pieUrl} target="_blank" rel="noreferrer">
@@ -39,7 +37,12 @@ export default function Prototypes() {
               <div className="prototype__body">
                 <div className="prototype__title">
                   <div className="btn btn--primary float--right">
-                    <i className="icon icon--plus" onClick={click} />
+                    <i
+                      className="icon icon--plus"
+                      onClick={() => {
+                        addToOrder(id);
+                      }}
+                    />
                   </div>
                   {title}
                 </div>
